@@ -100,20 +100,20 @@
     
     opkg update
 
-## 查看更新数量
-    opkg list-upgradable | grep -v Multiple | awk '{print $1}' | wc -l
+    ## 查看更新数量
+        opkg list-upgradable | grep -v Multiple | awk '{print $1}' | wc -l
 
-## 更新软件包
-    num=1
-    for i in `opkg list-upgradable | grep -v Multiple | awk '{print $1}'`; do
-    echo "==========================>>"$num--$i"<<=========================="
-    num=$((num+1))
-    opkg upgrade $i --force-depends
-    done
-    unset num
+    ## 更新软件包
+        num=1
+        for i in `opkg list-upgradable | grep -v Multiple | awk '{print $1}'`; do
+        echo "==========================>>"$num--$i"<<=========================="
+        num=$((num+1))
+        opkg upgrade $i --force-depends
+        done
+        unset num
 
-## sysupgrade 手动升级固件 会清除配置 
-    sysupgrade *-squashfs-sysupgrade.img.gz
+    ## sysupgrade 手动升级固件 会清除配置 
+        sysupgrade *-squashfs-sysupgrade.img.gz
 
 ## 问题
 ### 1、解决openwrt内核版本不一致,报错: cannot find dependency kernel (= 5.10.115-1-19cc8260705cc8ea5062882916b83dcc)
