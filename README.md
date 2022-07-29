@@ -3,7 +3,11 @@
 ## 描述
 这是一篇 Openwrt 官方固件查找和精简配置的文章，如果你想折腾，那就折腾
 
-## https://openwrt.org/toh/views/toh_fwdownload 或 https://firmware-selector.openwrt.org/ 都是官网的固件支持查询
+## 官网的固件查询下载
+    https://openwrt.org/toh/views/toh_fwdownload  
+    https://firmware-selector.openwrt.org  
+    网关：192.168.1.1  
+    无密码
 
 ## 更新源
     opkg update
