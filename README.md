@@ -130,6 +130,9 @@
     # 重启
     reboot
 
-## 感谢 · 参考
-vernesong : https://github.com/vernesong/OpenClash/tree/master/core-lateset  
-            https://github.com/vernesong/OpenClash/releases  
+## 感谢
+github vernesong 大佬
+
+## 参考
+https://github.com/vernesong/OpenClash/tree/master/core-lateset  
+https://github.com/vernesong/OpenClash/releases  
