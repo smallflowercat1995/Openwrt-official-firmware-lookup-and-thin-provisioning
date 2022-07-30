@@ -27,46 +27,46 @@
     opkg install docker docker-compose dockerd \
                 luci-app-dockerman
 
-## (可选) 安装 openclash 依赖
-### 删除会影响安装的配置文件自己斟酌删还是不删，反正我是删，还是注释一下吧 ，免得一股脑全复制
-    # rm -rfv /etc/hotplug.d/ntp/25-dnsmasqsec
-    # rm -rfv /etc/init.d/dnsmasq
-    # rm -rfv /usr/lib/dnsmasq/dhcp-script.sh
-    # rm -rfv /usr/sbin/dnsmasq
-    # rm -rfv /usr/share/acl.d/dnsmasq_acl.json
-    # rm -rfv /usr/share/dnsmasq/dhcpbogushostname.conf
-    # rm -rfv /usr/share/dnsmasq/rfc6761.conf
-    # rm -rfv /etc/config/dhcp
-    # rm -rfv /etc/config/luci
+## (可选) 安装 openclash
+    ### 删除会影响安装的配置文件自己斟酌删还是不删，反正我是删，还是注释一下吧 ，免得一股脑全复制
+        # rm -rfv /etc/hotplug.d/ntp/25-dnsmasqsec
+        # rm -rfv /etc/init.d/dnsmasq
+        # rm -rfv /usr/lib/dnsmasq/dhcp-script.sh
+        # rm -rfv /usr/sbin/dnsmasq
+        # rm -rfv /usr/share/acl.d/dnsmasq_acl.json
+        # rm -rfv /usr/share/dnsmasq/dhcpbogushostname.conf
+        # rm -rfv /usr/share/dnsmasq/rfc6761.conf
+        # rm -rfv /etc/config/dhcp
+        # rm -rfv /etc/config/luci
 
-    opkg install libwolfssl coreutils-nohup bash \
-                iptables dnsmasq-full curl \
-                ca-certificates ipset ip-full \
-                iptables-mod-tproxy iptables-mod-extra libcap \
-                libcap-bin ruby ruby-yaml \
-                kmod-tun kmod-inet-diag luci \
-                luci-base coreutils jsonfilter \
-                luci-compat
+        opkg install libwolfssl coreutils-nohup bash \
+                    iptables dnsmasq-full curl \
+                    ca-certificates ipset ip-full \
+                    iptables-mod-tproxy iptables-mod-extra libcap \
+                    libcap-bin ruby ruby-yaml \
+                    kmod-tun kmod-inet-diag luci \
+                    luci-base coreutils jsonfilter \
+                    luci-compat
 
-## 下载ipk https://github.com/vernesong/OpenClash/releases
-    curl -L -H "Connection: keep-alive" -k "https://github.com`curl -L 'https://github.com/vernesong/OpenClash/releases' | grep ipk | sed 's;";  ;g' | awk '{print $3}' | head -n 1`" -O
+    ### 下载ipk https://github.com/vernesong/OpenClash/releases
+        curl -L -H "Connection: keep-alive" -k "https://github.com`curl -L 'https://github.com/vernesong/OpenClash/releases' | grep ipk | sed 's;";  ;g' | awk '{print $3}' | head -n 1`" -O
 
-## 下载Dev clash核心 TUN clash核心 Meta clash核心 解压 https://github.com/vernesong/OpenClash/tree/master/core-lateset
-    curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/dev/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/dev' | sed 's;";  ;g'  | grep armv8 | awk '{print $12}'`" -o "clash.tar.gz"
-    curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/premium/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/premium' | sed 's;";  ;g'  | grep armv8 | awk '{print $12}'`" -o "clash_tun.gz"
-    curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/meta/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/meta' | sed 's;";  ;g'  | grep armv8 | awk '{print $12}'`" -o "clash_meta.tar.gz"
+    ### 下载Dev clash核心 TUN clash核心 Meta clash核心 解压 https://github.com/vernesong/OpenClash/tree/master/core-lateset
+        curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/dev/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/dev' | sed 's;";  ;g'  | grep armv8 | awk '{print $12}'`" -o "clash.tar.gz"
+        curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/premium/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/premium' | sed 's;";  ;g'  | grep armv8 | awk '{print $12}'`" -o "clash_tun.gz"
+        curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/meta/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/meta' | sed 's;";  ;g'  | grep armv8 | awk '{print $12}'`" -o "clash_meta.tar.gz"
 
-## 安装，安装完成后刷新LUCI页面，在菜单栏 -> 服务 -> OpenClash 进入插件页面
-    opkg install luci-app-openclash_*-beta_all.ipk
+    ### 安装，安装完成后刷新LUCI页面，在菜单栏 -> 服务 -> OpenClash 进入插件页面
+        opkg install luci-app-openclash_*-beta_all.ipk
 
-## 创建core目录
-    mkdir -p /etc/openclash/core/
+    ### 创建core目录
+        mkdir -p /etc/openclash/core/
 
-## 解压
-    tar zxvfO clash.tar.gz > /etc/openclash/core/clash
-    gunzip -dkfcv clash_tun.gz > /etc/openclash/core/clash_tun
-    tar zxvfO clash_meta.tar.gz > /etc/openclash/core/clash_meta
-    chmod -R 755 /etc/openclash/core/
+    ### 解压
+        tar zxvfO clash.tar.gz > /etc/openclash/core/clash
+        gunzip -dkfcv clash_tun.gz > /etc/openclash/core/clash_tun
+        tar zxvfO clash_meta.tar.gz > /etc/openclash/core/clash_meta
+        chmod -R 755 /etc/openclash/core/
 
 ## （可选）安装usb转网口rj45
     opkg install kmod-usb-net-asix kmod-usb-net-asix-ax88179
