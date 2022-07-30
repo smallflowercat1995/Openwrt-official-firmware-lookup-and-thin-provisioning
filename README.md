@@ -2,6 +2,7 @@
 
 ## 描述
 这是一篇适合 arm64 设备的 Openwrt 官方固件查找和精简配置的文章，如果你想折腾，那就折腾
+稍微注意改改好能变成其他设备的教程，自己留着用还是很不错的
 
 ## 官网的固件查询下载
     https://openwrt.org/toh/views/toh_fwdownload  
