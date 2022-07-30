@@ -23,16 +23,6 @@
 ## (可选) 安装 netdata 实时监控默认端口 :19999
     opkg install netdata
 
-## (可选) 安装汉化包
-    opkg install luci-i18n-base-zh-cn
-
-## (可选) 主题
-### luci-theme-argon 背景图片上传路径  /overlay/upper/www/luci-static/argon/background/ /www/luci-static/argon/background/
-    curl -L -H "Connection: keep-alive" -k "https://github.com`curl -L 'https://github.com/jerrykuku/luci-theme-argon/releases' | grep ipk | sed 's;";  ;g' | awk '{print $3}' | head -n 1`" -O
-
-## 安装主题
-    opkg install luci-theme-*.ipk
-
 ## (可选) 安装 docker
     opkg install docker docker-compose dockerd \
                 luci-app-dockerman
@@ -78,11 +68,24 @@
     tar zxvfO clash_meta.tar.gz > /etc/openclash/core/clash_meta
     chmod -R 755 /etc/openclash/core/
 
-## reboot
-    reboot
+## （可选）安装usb转网口rj45
+    opkg install kmod-usb-net-asix kmod-usb-net-asix-ax88179
 
 ## (可选) 安装 ttyd 终端
     opkg install ttyd luci-app-ttyd luci-i18n-ttyd-zh-cn
+
+## (可选) 主题
+### luci-theme-argon 背景图片上传路径  /overlay/upper/www/luci-static/argon/background/ /www/luci-static/argon/background/
+    curl -L -H "Connection: keep-alive" -k "https://github.com`curl -L 'https://github.com/jerrykuku/luci-theme-argon/releases' | grep ipk | sed 's;";  ;g' | awk '{print $3}' | head -n 1`" -O
+
+## 安装主题
+    opkg install luci-theme-*.ipk
+
+## (可选) 安装汉化包
+    opkg install luci-i18n-base-zh-cn
+
+## reboot
+    reboot
 
 ## 手动挂载目录
     # 查看磁盘信息命令 blkid 或者 fdisk -l
