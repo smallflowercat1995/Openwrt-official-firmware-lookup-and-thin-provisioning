@@ -49,7 +49,10 @@
                     luci-compat
 
     ### 下载ipk https://github.com/vernesong/OpenClash/releases
-        curl -L -H "Connection: keep-alive" -k "https://github.com`curl -L 'https://github.com/vernesong/OpenClash/releases' | grep ipk | sed 's;";  ;g' | awk '{print $3}' | head -n 1`" -O
+        # 下载方法失效？
+        # curl -L -H "Connection: keep-alive" -k "https://github.com`curl -L 'https://github.com/vernesong/OpenClash/releases' | grep ipk | sed 's;";  ;g' | awk '{print $3}' | head -n 1`" -O
+        DOWNLOAD=`curl -L 'https://github.com/vernesong/OpenClash/releases' | sed 's;";\n;g;s;tag;download;g' | grep '/download/' | head -n 1`
+        curl -L -H "Connection: keep-alive" -k "https://github.com${DOWNLOAD}/luci-app-openclash_`basename ${DOWNLOAD} | sed 's;v;;g'`_all.ipk" -o luci-app-openclash_`basename ${DOWNLOAD} | sed 's;v;;g'`_all.ipk -O
 
     ### 下载Dev clash核心 TUN clash核心 Meta clash核心 解压 https://github.com/vernesong/OpenClash/tree/master/core-lateset
         curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/dev/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/dev' | sed 's;";  ;g'  | grep armv8 | awk '{print $12}'`" -o "clash.tar.gz"
@@ -76,7 +79,10 @@
 
 ## (可选) 主题
 ### luci-theme-argon 背景图片上传路径  /overlay/upper/www/luci-static/argon/background/ /www/luci-static/argon/background/
-    curl -L -H "Connection: keep-alive" -k "https://github.com`curl -L 'https://github.com/jerrykuku/luci-theme-argon/releases' | grep ipk | sed 's;";  ;g' | awk '{print $3}' | head -n 1`" -O
+    # 下载方法失效？
+    # curl -L -H "Connection: keep-alive" -k "https://github.com`curl -L 'https://github.com/jerrykuku/luci-theme-argon/releases' | grep ipk | sed 's;";  ;g' | awk '{print $3}' | head -n 1`" -O
+    DOWNLOAD=`curl -L 'https://github.com/jerrykuku/luci-theme-argon/releases' | sed 's;";\n;g;s;tag;download;g' | grep '/download/' | head -n 1`
+    curl -L -H "Connection: keep-alive" -k "https://github.com${DOWNLOAD}/luci-theme-argon-master_`basename ${DOWNLOAD} | sed 's;v;;g'`_all.ipk" -o luci-theme-argon-master_`basename ${DOWNLOAD} | sed 's;v;;g'`_all.ipk -O
 
 ## 安装主题
     opkg install luci-theme-*.ipk
