@@ -55,9 +55,9 @@
         curl -L -H "Connection: keep-alive" -k "https://github.com${DOWNLOAD}/luci-app-openclash_`basename ${DOWNLOAD} | sed 's;v;;g'`_all.ipk" -o luci-app-openclash_`basename ${DOWNLOAD} | sed 's;v;;g'`_all.ipk -O
 
     ### 下载Dev clash核心 TUN clash核心 Meta clash核心 解压 https://github.com/vernesong/OpenClash/tree/master/core-lateset
-        curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/dev/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/dev' | sed 's;";  ;g'  | grep armv8 | awk '{print $12}'`" -o "clash.tar.gz"
-        curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/premium/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/premium' | sed 's;";  ;g'  | grep armv8 | awk '{print $12}'`" -o "clash_tun.gz"
-        curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/meta/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/meta' | sed 's;";  ;g'  | grep armv8 | awk '{print $12}'`" -o "clash_meta.tar.gz"
+        curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/dev/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/dev' | sed 's;";  ;g'  | grep arm64 | awk '{print $12}'`" -o "clash.tar.gz"
+        curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/premium/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/premium' | sed 's;";  ;g'  | grep arm64 | awk '{print $12}'`" -o "clash_tun.gz"
+        curl -L -H "Connection: keep-alive" -k "https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/meta/`curl -L 'https://github.com/vernesong/OpenClash/tree/master/core-lateset/meta' | sed 's;";  ;g'  | grep arm64 | awk '{print $12}'`" -o "clash_meta.tar.gz"
 
     ### 安装，安装完成后刷新LUCI页面，在菜单栏 -> 服务 -> OpenClash 进入插件页面
         opkg install luci-app-openclash_*-beta_all.ipk
