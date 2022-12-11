@@ -111,9 +111,9 @@
         net.bridge.bridge-nf-call-iptables = 1
         net.bridge.bridge-nf-call-arptables = 1
     # 后台修改设置：
-    # Luci>网络>防火墙>转发：接受
-    # Luci>状态>防火墙>重启防火墙
-    # 最后ssh执行service dockerd restart
+        Luci>网络>防火墙>转发：接受
+        Luci>状态>防火墙>重启防火墙
+        最后ssh执行service dockerd restart
 
 ## 如果要执行卸载命令按照以下卸载opencllash的例子即可
     # 插件在卸载后会自动备份配置文件到 /tmp 目录下，除非路由器重启，在下次安装时将还原您的配置文件
