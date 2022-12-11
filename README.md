@@ -105,6 +105,16 @@
     # 进入软路由界面 docker -> 配置 将 Docker Root Dir 配置为自己想要存放的路径
     # 点击 保存并应用 ，重启 docker 服务命令 /etc/init.d/dockerd restart
 
+## 解决 openwrt 下 docker 无法联网的问题
+    # 首先 vim /etc/sysctl.conf 添加下列内容：
+        net.bridge.bridge-nf-call-ip6tables = 1
+        net.bridge.bridge-nf-call-iptables = 1
+        net.bridge.bridge-nf-call-arptables = 1
+    # 后台修改设置：
+    # Luci>网络>防火墙>转发：接受
+    # Luci>状态>防火墙>重启防火墙
+    # 最后ssh执行service dockerd restart
+
 ## 如果要执行卸载命令按照以下卸载opencllash的例子即可
     # 插件在卸载后会自动备份配置文件到 /tmp 目录下，除非路由器重启，在下次安装时将还原您的配置文件
     # opkg remove luci-app-openclash
@@ -153,3 +163,4 @@ github vernesong 大佬
 ## 参考
 https://github.com/vernesong/OpenClash/tree/master/core-lateset  
 https://github.com/vernesong/OpenClash/releases  
+https://www.right.com.cn/forum/thread-1209004-1-1.html  
