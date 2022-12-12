@@ -66,9 +66,9 @@
         mkdir -p /etc/openclash/core/
 
     ### 解压
-        tar zxvf clash.tar.gz -C /etc/openclash/core/
-        gunzip -dkfcv clash_tun.gz > /etc/openclash/core/clash_tun
-        tar zxvfO clash_meta.tar.gz > /etc/openclash/core/clash_meta
+        tar zxvf clash.tar.gz ; mv -v clash /etc/openclash/core/clash
+        gzip -dk clash_tun.gz ; mv -v clash_tun /etc/openclash/core/clash_tun
+        tar zxvf clash_meta.tar.gz ; mv -v clash /etc/openclash/core/clash_meta
         chmod -R 755 /etc/openclash/core/
 
 ## （可选）安装usb转网口rj45
