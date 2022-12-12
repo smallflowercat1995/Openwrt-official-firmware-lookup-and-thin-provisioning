@@ -66,7 +66,7 @@
         mkdir -p /etc/openclash/core/
 
     ### 解压
-        tar zxvfO clash.tar.gz > /etc/openclash/core/clash
+        tar zxvf clash.tar.gz -C /etc/openclash/core/
         gunzip -dkfcv clash_tun.gz > /etc/openclash/core/clash_tun
         tar zxvfO clash_meta.tar.gz > /etc/openclash/core/clash_meta
         chmod -R 755 /etc/openclash/core/
