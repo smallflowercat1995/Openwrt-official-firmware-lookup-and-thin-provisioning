@@ -115,6 +115,11 @@
         Luci>状态>防火墙>重启防火墙
     # 最后ssh执行service dockerd restart
 
+## 关闭防火墙，不建议，但是如果你受够了
+    iptables -F
+    iptables -X
+    /etc/init.d/firewall disable
+
 ## 如果要执行卸载命令按照以下卸载opencllash的例子即可
     # 插件在卸载后会自动备份配置文件到 /tmp 目录下，除非路由器重启，在下次安装时将还原您的配置文件
     # opkg remove luci-app-openclash
@@ -164,3 +169,4 @@ github vernesong 大佬
 https://github.com/vernesong/OpenClash/tree/master/core-lateset  
 https://github.com/vernesong/OpenClash/releases  
 https://www.right.com.cn/forum/thread-1209004-1-1.html  
+https://www.right.com.cn/FORUM/thread-350773-1-1.html  
