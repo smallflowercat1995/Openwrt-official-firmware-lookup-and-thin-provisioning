@@ -18,7 +18,7 @@
                 kmod-usb3 kmod-usb-core kmod-usb-storage \
                 kmod-fs-ext4 kmod-fs-msdos kmod-fs-nfs \
                 kmod-fs-ntfs kmod-usb-storage-uas cfdisk \
-                smartmontools blkid fdisk
+                smartmontools blkid fdisk kmod-fs-btrfs
 
 ## (可选) 安装 netdata 实时监控默认端口 :19999
     opkg install netdata
@@ -170,3 +170,4 @@ https://github.com/vernesong/OpenClash/tree/master/core-lateset
 https://github.com/vernesong/OpenClash/releases  
 https://www.right.com.cn/forum/thread-1209004-1-1.html  
 https://www.right.com.cn/FORUM/thread-350773-1-1.html  
+https://openwrt.org/zh-cn/doc/howto/storage  
