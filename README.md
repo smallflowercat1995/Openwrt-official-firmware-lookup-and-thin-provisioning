@@ -18,7 +18,7 @@
                 kmod-usb3 kmod-usb-core kmod-usb-storage \
                 kmod-fs-ext4 kmod-fs-msdos kmod-fs-nfs \
                 kmod-fs-ntfs kmod-usb-storage-uas cfdisk \
-                smartmontools blkid fdisk kmod-fs-btrfs
+                smartmontools blkid fdisk kmod-fs-btrfs btrfs-progs
 
 ## (可选) 安装 netdata 实时监控默认端口 :19999
     opkg install netdata
