@@ -1,4 +1,12 @@
 # Openwrt 官方固件查找和精简配置
+![Watchers](https://img.shields.io/github/watchers/smallflowercat1995/Openwrt-official-firmware-lookup-and-thin-provisioning) ![Stars](https://img.shields.io/github/stars/smallflowercat1995/Openwrt-official-firmware-lookup-and-thin-provisioning) ![Forks](https://img.shields.io/github/forks/smallflowercat1995/Openwrt-official-firmware-lookup-and-thin-provisioning) ![Vistors](https://visitor-badge.laobi.icu/badge?page_id=smallflowercat1995.Openwrt-official-firmware-lookup-and-thin-provisioning) ![LICENSE](https://img.shields.io/badge/license-CC%20BY--SA%204.0-green.svg)
+<a href="https://star-history.com/#smallflowercat1995/Openwrt-official-firmware-lookup-and-thin-provisioning&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=smallflowercat1995/Openwrt-official-firmware-lookup-and-thin-provisioning&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=smallflowercat1995/Openwrt-official-firmware-lookup-and-thin-provisioning&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=smallflowercat1995/Openwrt-official-firmware-lookup-and-thin-provisioning&type=Date" />
+  </picture>
+</a>
 
 ## 描述
 这是一篇适合 arm64 设备的 Openwrt 官方固件查找和精简配置的文章，如果你想折腾，那就折腾  
